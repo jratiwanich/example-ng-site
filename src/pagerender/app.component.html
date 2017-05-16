@@ -1,0 +1,23 @@
+
+<!-- <button type="button" (click)="loadPage()" class="btn">Generate Components</button> -->
+
+<!-- list all of the components from json nodes to display -->
+<div *ngFor="let node of pageModel?.children">
+  <!-- <b>node.component={{node.component}}</b> -->
+  <ng-container *ngComponentOutlet="node.type;
+                injector: modelInjectors[node.path];
+                content: myContent"
+                (navEmitter)="loadPage($event)"
+                ></ng-container>
+</div>
+
+
+<!-- <ng-container *ngComponentOutlet="testcom"></ng-container>
+<ng-container *ngComponentOutlet="footer"></ng-container>
+<ng-container *ngComponentOutlet="CompleteComponent;
+                                  injector: myInjector;
+                                  content: myContent"></ng-container>
+
+-->
+
+<!-- <footer-ui></footer-ui> -->

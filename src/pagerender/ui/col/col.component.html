@@ -1,0 +1,27 @@
+
+
+<div *ngIf="(jcr.model.children!=null || jcr.model.children !== 'undefined'); else elseBlock">
+
+  <div [class]="jcr?.model?.classes" *ngFor="let node of jcr?.model?.children" >
+      <ng-container *ngComponentOutlet="node.type;
+                  injector: modelInjectors[node.path]"
+                  ></ng-container>
+  </div>
+</div>
+<ng-template #elseBlock>
+  <div class="debug">ColComponent=</div>
+  {{jcr?.model?.text}}
+</ng-template>
+
+<!-- <div class="debug">
+  ColComponent: child={{node.component}}, path={{node.path}}
+</div> -->
+
+
+  <!-- <div [class]="jcr?.model?.classes" *ngFor="let node of jcr?.model?.children">
+    <div class="debug">ColComponent length={{jcr?.model?.children.length}}<br>
+    CHILDREN={{node.component}}  text={{node.text}}  <br></div>
+            <ng-container *ngComponentOutlet="node.type;
+                      injector: modelInjectors[node.component]"></ng-container>
+  </div> -->
+<!-- class={{jcr?.model.classes}} -->

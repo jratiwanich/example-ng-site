@@ -1,0 +1,46 @@
+import { OnInit, Injector } from '@angular/core';
+import { PlatformLocation } from '@angular/common';
+import { CmsService } from './service/cms.service';
+import { JcrModel } from './model/jcr-model';
+import { PageUiComponent } from './ui/page/page-ui.component';
+import { FooterComponent } from './ui/footer/footer.component';
+import { NavComponent } from './ui/nav/nav.component';
+import { JumbotronComponent } from './ui/jumbotron/jumbotron.component';
+import { RowComponent } from './ui/row/row.component';
+import { ColComponent } from './ui/col/col.component';
+import { TextComponent } from './ui/text/text.component';
+export declare class PagerenderComponent implements OnInit {
+    private cmsSrv;
+    jcr: JcrModel;
+    private injector;
+    private location;
+    title: string;
+    private pageModel;
+    private pageComponents;
+    private m;
+    private myModule;
+    private exampleUrl;
+    private templateUrl;
+    private currentUrl;
+    private modelInjectors;
+    private modelInjector;
+    private modelProvider;
+    private nodeUtil;
+    myContent: any;
+    loadedComponents: {
+        'pagerender-vue-structure-container': typeof PageUiComponent;
+        'example-components-jumbotron': typeof JumbotronComponent;
+        'example-components-nav': typeof NavComponent;
+        'example-components-footer': typeof FooterComponent;
+        'example-components-row': typeof RowComponent;
+        'example-components-col': typeof ColComponent;
+        'pagerender-vue-components-base': typeof TextComponent;
+    };
+    constructor(cmsSrv: CmsService, jcr: JcrModel, injector: Injector, location: PlatformLocation);
+    onPopState($event: any): void;
+    ngOnInit(): void;
+    getTemplateData(contentpath: string, templatepath?: string): void;
+    getContentData(path: string, template: any): void;
+    loadPage(pagePath: string, url: string): void;
+    loadPageData(template: any, content: any): void;
+}

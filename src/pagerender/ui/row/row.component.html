@@ -1,0 +1,6 @@
+<div class="row" *ngFor="let node of jcr?.model?.children">
+  <!-- <div class="debug">1-RowComponent CHILDREN={{jcr?.model?.children.length}}<br>
+  child={{node.component}}</div> -->
+      <ng-container *ngComponentOutlet="node.type;
+                    injector: modelInjectors[node.path]"></ng-container>
+</div>

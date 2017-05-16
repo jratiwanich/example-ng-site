@@ -1,0 +1,10 @@
+<div *ngFor="let node of jcr?.model?.children">
+  <!-- <div class="debug">0-PageUiComponent CHILDREN={{jcr?.model?.children.length}}<br>
+  child={{node.component}}</div> -->
+      <ng-container *ngComponentOutlet="node.type;
+                    injector: modelInjectors[node.path]"></ng-container>
+
+</div>
+
+<!-- testing insert text content -->
+<!-- <ng-content></ng-content><br> -->

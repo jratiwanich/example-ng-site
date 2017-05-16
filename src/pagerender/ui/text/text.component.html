@@ -1,0 +1,23 @@
+
+
+<div *ngIf="jcr?.model?.children; else elseBlock">
+  <!-- <div class="debug">
+    TextComponent: child={{node.component}}
+  </div> -->
+  <div [class]="jcr?.model?.classes" *ngFor="let node of jcr?.model?.children" >
+    <ng-container *ngComponentOutlet="node.type;
+                injector: modelInjectors[node.path]"></ng-container>
+  </div>
+</div>
+<ng-template #elseBlock>
+  <!-- <div class="debug">TextComponent=</div> -->
+  {{jcr?.model?.text}}
+</ng-template>
+
+
+
+<div [class]="jcr?.model?.classes" *ngFor="let node of jcr?.model?.children" >
+    <ng-container *ngComponentOutlet="node.type;
+                injector: modelInjectors[node.path]"
+                ></ng-container>
+</div>
